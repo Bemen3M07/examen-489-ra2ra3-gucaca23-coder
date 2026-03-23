@@ -28,6 +28,9 @@ npm --version
 
 ---
 
+#Respuesta 1
+La funcion 
+
 ### 2 · Arrencar el servidor mock local
 
 Els cotxes provenen d'un servidor local (Express / Node.js) que emula l'API real.

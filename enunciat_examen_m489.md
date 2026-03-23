@@ -4,10 +4,10 @@
 
 **Unitats Formatives:** RA2 i RA3  
 **Curs:** 2n DAM · Videojocs  
-**Data:** ____________________  
+**Data:** ___23/03/2026_________________  
 **Durada:** 2 hores  
 
-**Alumne/a:** ________________________________________________  
+**Alumne/a:** ___Guillem Carpio_____________________________________________  
 **Grup:** __________________________________________________  
 
 ---
@@ -42,7 +42,8 @@ Al projecte **Cars**, el widget `CarsPage` gestiona el número de pàgina actual
 **Resposta:**
 
 ```
-[Escriu la teva resposta aquí]
+La función de setState es indicar a Flutter que el estado interno del widget ha cambiado y que debe reconstruir la interfaz para reflejar esos cambios. Se usa dos veces en _loadPage porque al inicio se activa el estado de carga (para mostrar un indicador) y al final se actualizan los datos o el error, provocando otra reconstrucción con la información nueva.
+
 ```
 
 ---
@@ -56,8 +57,8 @@ Al projecte **Camera**, el widget `CameraScreen` utilitza un `CameraController` 
 **Resposta:**
 
 ```
-[Escriu la teva resposta aquí]
-```
+
+El método es dispose(), y se utiliza para liberar recursos como el CameraController cuando el widget se destruye. Es imprescindible llamarlo porque si no, la cámara queda bloqueada por el sistema y puede provocar fugas de memoria o que otras apps no puedan usarla.```
 
 ---
 
@@ -70,7 +71,8 @@ Al projecte **Camera**, el widget `CameraScreen` utilitza un `CameraController` 
 **Resposta:**
 
 ```
-[Escriu la teva resposta aquí]
+No se puede usar await en initState porque este método debe ejecutarse de forma síncrona para que Flutter pueda construir la UI inmediatamente. Usar FutureBuilder mejora la experiencia del usuario porque muestra un indicador de carga en lugar de bloquear la app. El Future (_initializeControllerFuture) se pasa al FutureBuilder, que reconstruye la interfaz automáticamente según el estado: esperando, completado o error.
+
 ```
 
 ---
@@ -89,6 +91,9 @@ Què passaria si el servidor de l'API trigués 60 segons a respondre? L'aplicaci
 // Escriu la modificació al getCarsPage aquí:
 Future<List<CarsModel>> getCarsPage(int page, int limit) async {
   // ...
+      final response = await http
+        .get(uri, headers: _headers)
+        .timeout(const Duration(seconds: limit));
 }
 ```
 
@@ -103,8 +108,7 @@ Analitza el constructor `factory CarsModel.fromMapToCarObject(Map<String, dynami
 **Resposta:**
 
 ```
-[Escriu la teva resposta aquí]
-```
+Se puede convertir el valor a entero comprobando si es String, por ejemplo usando int.parse, así se evita el error cuando la API devuelve el año como texto en lugar de número.```
 
 ---
 
@@ -113,8 +117,7 @@ Analitza el constructor `factory CarsModel.fromMapToCarObject(Map<String, dynami
 **Resposta:**
 
 ```
-[Escriu la teva resposta aquí]
-```
+Es mejor usar un JSON simulado porque el test no depende de la red ni de una API externa, es más rápido, siempre da el mismo resultado y evita fallos por conexión o cambios en el servidor.```
 
 ---
 
